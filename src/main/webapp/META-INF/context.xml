@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/PCMS" reloadable="true">
+	<!-- 方式(1) : mapping 到 Server→Server.xml中配置的連線池 -->
+	<!-- <ResourceLink name="jdbc/ctbcDB" global="jdbc/globalDS" type="javax.sql.DataSource"/> -->
+	
+	<!-- 方式(2) : 直接將連線池配置在本應用程式的context.xml中(注意: 此處name屬性要與web.xml中的<res-ref-name>對應) -->
+	<Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		name="jdbc/pcmsDB" maxIdle="5" maxTotal="20" maxWaitMillis="10000" 
+		username="sa" password="sa123456" type="javax.sql.DataSource"
+		url="jdbc:sqlserver://localhost:1433;DatabaseName=PCMS_SIT" />
+
+</Context>
